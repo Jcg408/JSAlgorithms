@@ -6,7 +6,7 @@
     c. add string to new string
     d. return new string */
 
-const repeatify = (str, num) => {
+const strRepeat = (str, num) => {
     let newStr = '';
     for (let i = 1; i <= num; i++) {
         newStr = newStr + str
@@ -68,4 +68,19 @@ const revStr = (str) => {
         }
         return mostChar;
     }
+
+    /* 4. Palindrome -  Given a string, check to see if a it is the same forward as backward. 
+        a. normalize string - to lowercase
+        b. remove punctuation and spaces using reg exp
+        c. convert to array, reverse, join back to string
+        d. console.log response*/
     
+    
+    const palindrome = (str) => {
+        let string = str.toLowerCase().replace(/[\W\_]/g, "");
+        let newString = string.split('').reverse().join('');
+        
+        string === newString ? console.log('Palindrome') : console.log('Not a palindrome')
+    }
+   
+   
