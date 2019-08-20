@@ -34,7 +34,18 @@ divisible by both 3 & 5 - console.log() 'fizzbuzz'.
             return 1;
         }
             return num * (factorial(num -1));
-        }
+    }
+    
+    //assumes num cannot be < 1. Iterates through 2..num 
+    const iterativeFactorial = num => {        
+      let factorial = 1;
+        
+      for (let i = 2; i <= num; i++) {
+        factorial *= i
+      }
+      
+      return factorial
+    }
    
 
     /* 3. Fibonacci - Find the number at a given index in the sequence using Fibonacci's number sequence.
