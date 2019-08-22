@@ -57,17 +57,17 @@ const factor = (num) => {
     b. loop through sequence and reset variables
     c. return result */
 
-    // const fibonacci = (index) => {
-    //     let a = 0;
-    //     let b = 1;
-    //     let c = 1;
+    const fibonacci = (index) => {
+        let a = 0;
+        let b = 1;
+        let c = 1;
 
-    //     for(let i = 2; i <= index; i++) {
-    //         c = a + b;
-    //         a = b;
-    //         b = c;
+        for(let i = 2; i <= index; i++) {
+            c = a + b;
+            a = b;
+            b = c;
 
-    //     }
-    //     console.log(c)
-    // }
-    // fibonacci(7);
+        }
+        console.log(c)
+    }
+    fibonacci(7);
