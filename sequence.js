@@ -49,6 +49,27 @@ const factor = (num) => {
     }
     return n;
 }
+// Another sample of recursion and non recursion
+/* 3. Multiply 2 integers not using * , but using + and/or - operators.*/
+    const multiply = (a, b) => {
+        if (a === 0 || b === 0) {
+            return 0;
+        }
+        if (b ===1) {
+            return a;
+        }
+        return a + multiply(a, b-1);
+    }
+
+/* 3a. Multiply non recursive */
+const multiply = (a, b) => {
+    let times = a;
+    while (b > 1) {
+        b--
+        times = times + a;
+    }
+    return times;
+}
 
 
 /* 3. Fibonacci - Find the number at a given index in the sequence using Fibonacci's number sequence.
