@@ -100,3 +100,17 @@ const anagram = (str1, str2) => {
 
 }
 
+/*6 Starts With Uppercase - Given a string, check to see if the first letter is uppercase.
+
+    a. check to see what current letter is at index 0
+    b. compare to uppercase value of letter
+    c. return true, false */
+
+const startsWith = (str) => {
+    if (str.charAt(0)===str.charAt(0).toUpperCase()) {
+        return true
+    } else {
+        return false
+    }
+}
+
