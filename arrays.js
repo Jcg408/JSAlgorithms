@@ -156,19 +156,40 @@ const missing = (arr) => {
     a. sort array which will put them in sorted pairs
     b. iterate 2 spots to check value of next item. If pair it will have same value, 
     c. check value to see if both have same value. If not break and return value */
-    
-const notpair =(arr) => {
-    if (arr.length===1) {
-      return arr[0];
+
+const notpair = (arr) => {
+    if (arr.length === 1) {
+        return arr[0];
     }
-    arr.sort((a,b) => a-b)
+    arr.sort((a, b) => a - b)
     let item = null;
-    for (let i = 0; i<arr.length; i+=2) {
-      if(arr[i] != arr[i +1]) {
-        item =(arr[i])
-        break;
-      } 
-    } 
+    for (let i = 0; i < arr.length; i += 2) {
+        if (arr[i] != arr[i + 1]) {
+            item = (arr[i])
+            break;
+        }
+    }
     console.log(item);
-  }
-  
+}
+
+/* 9. Check distinct values in an array. See how many distinct elements are in the array without duplicates - return the count
+  a. set condition for counter array length greater than 0
+  b. set new array variable
+  c. loop through using includes(method) to see if element is in the new array, if not push to array
+  d. increment the count.
+  e. return count */
+
+const distinct = (array) => {
+    if (array.length > 0) {
+        let count = 0;
+        let newArr = [];
+        for (let item of array) {
+            if (!newArr.includes(item)) {
+                newArr.push(item)
+                count++
+            }
+        }
+        return count;
+    }
+}
+
