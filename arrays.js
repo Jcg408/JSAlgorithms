@@ -151,3 +151,24 @@ const missing = (arr) => {
     }
     return num;
 }
+
+/* 8. Single element in array with pairs- Find the single element which is not duplicated in the array
+    a. sort array which will put them in sorted pairs
+    b. iterate 2 spots to check value of next item. If pair it will have same value, 
+    c. check value to see if both have same value. If not break and return value */
+    
+const notpair =(arr) => {
+    if (arr.length===1) {
+      return arr[0];
+    }
+    arr.sort((a,b) => a-b)
+    let item = null;
+    for (let i = 0; i<arr.length; i+=2) {
+      if(arr[i] != arr[i +1]) {
+        item =(arr[i])
+        break;
+      } 
+    } 
+    console.log(item);
+  }
+  
