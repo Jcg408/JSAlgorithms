@@ -193,3 +193,42 @@ const distinct = (array) => {
     }
 }
 
+/* 10. Rotate Right - Given an array, shift items a specified number of times to the right, last index becomes first index.
+    a. set counter for number of rotations
+    b. set temporary array to hold removed element
+    c. set conditional loop
+    d. remove last item and put in front of array
+    e. return array.
+*/
+
+const moveRight = (arr, x) => {
+    let count = x
+    let last = [];
+
+    while (count > 0) {
+        last = arr.splice(arr.length - 1)
+        arr.unshift(...last)
+        count--
+    }
+    return arr;
+}
+
+/* 1l. Rotate Left - Given an array, shift items a specified number of times to the left, last index becomes first index.
+    a. set counter for number of rotations
+    b. set temporary array to hold removed element
+    c. set conditional loop
+    d. remove first item and push to back of array
+    e. return array.
+*/
+const moveLeft = (arr, x) => {
+    let first = []
+    let count = x;
+
+    while (count >0) {
+        first = arr.shift();
+        arr.push(first)
+        count--
+    }
+    return arr;
+}
+
