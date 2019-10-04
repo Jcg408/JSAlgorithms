@@ -122,4 +122,26 @@ const startsWith = (str) => {
     d. iterate through 2nd string and compare to object. Remove characters if already in object, if character not in object return false.
     e. Return true if there is permutation */
 
-    
+    const strPerm = (str1, str2) => {
+        if (str1.length !== str2.length) {
+            return false;
+        }
+        let strObj = {};
+        for (let i = 0; i<str1.length; i++) {
+            let char = str1[i];
+            if(strObj[char]) {
+                strObj[char] ++
+            } else{
+                strObj[char]=1;
+            }
+        }
+        for (let i = 0; i<str2.length; i++) {
+            let char2 = str2[i];
+            if(strObj[char2] && strObj[char2]!==0) {
+                strObj[char2]--
+            } else {
+                return false;
+            }
+        }
+        return true;
+     }
