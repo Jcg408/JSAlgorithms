@@ -114,3 +114,12 @@ const startsWith = (str) => {
     }
 }
 
+/* 7 String permutation comparison - Given 2 strings, check to see if they are permutations of each other.
+
+    a. If string lengths are not the same - return false
+    b. set empty object to hold string for comparison.
+    c. iterate through 1st string and store in object.
+    d. iterate through 2nd string and compare to object. Remove characters if already in object, if character not in object return false.
+    e. Return true if there is permutation */
+
+    
