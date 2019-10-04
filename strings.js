@@ -36,7 +36,7 @@ a. create empty string
 b. loop through characters
 c. concatenate char with newStr to equal new string */
 
-const revStr = (str) => {
+const revStr2 = (str) => {
     let newStr = ''
 
     for (let char of str) {
@@ -145,3 +145,6 @@ const startsWith = (str) => {
         }
         return true;
      }
+
+    
+     
