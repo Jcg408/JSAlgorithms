@@ -157,7 +157,29 @@ const startsWith = (str) => {
             return false;
         }
         
+    /*9 String Caesar Cipher - Given a string , shift the letters a specified amount to decipher the code.
+        Shift the letters 13 places for a ROT13 encoded string. All letters will be uppercase, do not transform any non-alphabetic character.
+        a. check ascii codes to get number values of letters. Capital letters are 65-90
+        b. loop through string to get corresponding letter
+        c. return any non alphabetic characters.*/
 
+        const caesar = (str)=> {
+            let newStr = ''
+          for(let i= 0; i < str.length; i++) {
+              const numAscii = str[i].charCodeAt();
+             if(numAscii >=65 && numAscii <=77) {
+                newStr+= String.fromCharCode(numAscii+13)
+             }
+             else if (numAscii >77 && numAscii <=90) {
+                 newStr+= String.fromCharCode(numAscii-13)
+             }
+             else {
+                 newStr += str[i];
+             }
+          }
+          return newStr;
+        }
+    //    caesar('PBQVAT'))
 
     
      
