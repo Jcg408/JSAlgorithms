@@ -87,8 +87,7 @@ const multiply = (a, b) => {
             c = a + b;
             a = b;
             b = c;
-
         }
         console.log(c)
     }
-    fibonacci(7);
+    

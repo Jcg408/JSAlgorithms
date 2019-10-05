@@ -146,5 +146,18 @@ const startsWith = (str) => {
         return true;
      }
 
+     /*8 String ending - Given a string and target , check to see if string ending same as target.
+        a. boolean conditional with substring method.
+        b. compare to string to target length from end.*/
+
+        const strEnd = (str, target) => {
+            if (str.substr(-target.length)=== target) {
+                return true;
+            }
+            return false;
+        }
+        
+
+
     
      
