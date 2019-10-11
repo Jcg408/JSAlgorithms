@@ -1,3 +1,4 @@
+'use strict'
 // JavaScript Algorithm Samples -Strings
 
 /* 1. String Repeat - Given a string return the repeated string a specified number of times.
@@ -181,5 +182,21 @@ const startsWith = (str) => {
         }
     //    caesar('PBQVAT'))
 
+    /* 10. Capitalize Words - Given a string, capitalize first letter of every work in a string
+        a. set variable for new string
+        b. normalize string with lowercase
+        c. split string into words
+        d. iterate and uppercase first letter of word, concat the rest of letters
+        e. return new string
+    */
+   const cap = (str) => {
+       if (str.length > 1) {
+           let newStr = str.toLowerCase().split(' ').map(word => {
+             return word[0].toUpperCase() + word.slice(1)
+           })
+           return newStr.join(' ');
+       }
+   }
+cap('it was a lovey day');
     
      
