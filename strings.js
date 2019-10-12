@@ -108,7 +108,7 @@ const anagram = (str1, str2) => {
     c. return true, false */
 
 const startsWith = (str) => {
-    if (str.charAt(0)===str.charAt(0).toUpperCase()) {
+    if (str.charAt(0) === str.charAt(0).toUpperCase()) {
         return true
     } else {
         return false
@@ -123,80 +123,102 @@ const startsWith = (str) => {
     d. iterate through 2nd string and compare to object. Remove characters if already in object, if character not in object return false.
     e. Return true if there is permutation */
 
-    const strPerm = (str1, str2) => {
-        if (str1.length !== str2.length) {
+const strPerm = (str1, str2) => {
+    if (str1.length !== str2.length) {
+        return false;
+    }
+    let strObj = {};
+    for (let i = 0; i < str1.length; i++) {
+        let char = str1[i];
+        if (strObj[char]) {
+            strObj[char]++
+        } else {
+            strObj[char] = 1;
+        }
+    }
+    for (let i = 0; i < str2.length; i++) {
+        let char2 = str2[i];
+        if (strObj[char2] && strObj[char2] !== 0) {
+            strObj[char2]--
+        } else {
             return false;
         }
-        let strObj = {};
-        for (let i = 0; i<str1.length; i++) {
-            let char = str1[i];
-            if(strObj[char]) {
-                strObj[char] ++
-            } else{
-                strObj[char]=1;
-            }
-        }
-        for (let i = 0; i<str2.length; i++) {
-            let char2 = str2[i];
-            if(strObj[char2] && strObj[char2]!==0) {
-                strObj[char2]--
-            } else {
-                return false;
-            }
-        }
+    }
+    return true;
+}
+
+/*8 String ending - Given a string and target , check to see if string ending same as target.
+   a. boolean conditional with substring method.
+   b. compare to string to target length from end.*/
+
+const strEnd = (str, target) => {
+    if (str.substr(-target.length) === target) {
         return true;
-     }
+    }
+    return false;
+}
 
-     /*8 String ending - Given a string and target , check to see if string ending same as target.
-        a. boolean conditional with substring method.
-        b. compare to string to target length from end.*/
+/*9 String Caesar Cipher - Given a string , shift the letters a specified amount to decipher the code.
+    Shift the letters 13 places for a ROT13 encoded string. All letters will be uppercase, do not transform any non-alphabetic character.
+    a. check ascii codes to get number values of letters. Capital letters are 65-90
+    b. loop through string to get corresponding letter
+    c. return any non alphabetic characters.*/
 
-        const strEnd = (str, target) => {
-            if (str.substr(-target.length)=== target) {
-                return true;
-            }
-            return false;
+const caesar = (str) => {
+    let newStr = ''
+    for (let i = 0; i < str.length; i++) {
+        const numAscii = str[i].charCodeAt();
+        if (numAscii >= 65 && numAscii <= 77) {
+            newStr += String.fromCharCode(numAscii + 13)
         }
-        
-    /*9 String Caesar Cipher - Given a string , shift the letters a specified amount to decipher the code.
-        Shift the letters 13 places for a ROT13 encoded string. All letters will be uppercase, do not transform any non-alphabetic character.
-        a. check ascii codes to get number values of letters. Capital letters are 65-90
-        b. loop through string to get corresponding letter
-        c. return any non alphabetic characters.*/
-
-        const caesar = (str)=> {
-            let newStr = ''
-          for(let i= 0; i < str.length; i++) {
-              const numAscii = str[i].charCodeAt();
-             if(numAscii >=65 && numAscii <=77) {
-                newStr+= String.fromCharCode(numAscii+13)
-             }
-             else if (numAscii >77 && numAscii <=90) {
-                 newStr+= String.fromCharCode(numAscii-13)
-             }
-             else {
-                 newStr += str[i];
-             }
-          }
-          return newStr;
+        else if (numAscii > 77 && numAscii <= 90) {
+            newStr += String.fromCharCode(numAscii - 13)
         }
-    //    caesar('PBQVAT'))
+        else {
+            newStr += str[i];
+        }
+    }
+    return newStr;
+}
+//    caesar('PBQVAT'))
 
-    /* 10. Capitalize Words - Given a string, capitalize first letter of every work in a string
-        a. set variable for new string
-        b. normalize string with lowercase
-        c. split string into words
-        d. iterate and uppercase first letter of word, concat the rest of letters
-        e. return new string
-    */
-   const cap = (str) => {
-       if (str.length > 1) {
-           let newStr = str.toLowerCase().split(' ').map(word => {
-             return word[0].toUpperCase() + word.slice(1)
-           })
-           return newStr.join(' ');
-       }
-   }
-cap('it was a lovey day');
-    
-     
+/* 10. Capitalize Words - Given a string, capitalize first letter of every work in a string
+    a. set variable for new string
+    b. normalize string with lowercase
+    c. split string into words
+    d. iterate and uppercase first letter of word, concat the rest of letters
+    e. return new string
+*/
+const cap = (str) => {
+    if (str.length > 1) {
+        let newStr = str.toLowerCase().split(' ').map(word => {
+            return word[0].toUpperCase() + word.slice(1)
+        })
+        return newStr.join(' ');
+    }
+}
+/* 11. Given a string containing only lowercase letters, find whether every letter appearing in the string
+   appears the same number of times. 
+    a. Check for empty string.
+    b. make sure string is lowercase
+    c. use object to store letters and values
+    d. check values to see if they are the same.
+*/
+const sameValue = (string) => {
+    if(string.length <=1) {
+        return string;
+    }
+    const str= string.toLowerCase();
+    let count = {};
+    for(let i = 0; i<str.length; i++) {
+        let char = str[i];
+        if(count[char]) {
+            count[char]++
+        } else {
+            count[char]=1;
+        }
+    }
+    const value = Object.values(count);
+    return value.every(num=> num === value[0]);
+
+}
