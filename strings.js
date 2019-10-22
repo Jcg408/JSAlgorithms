@@ -205,20 +205,25 @@ const cap = (str) => {
     d. check values to see if they are the same.
 */
 const sameValue = (string) => {
-    if(string.length <=1) {
+    if (string.length <= 1) {
         return string;
     }
-    const str= string.toLowerCase();
+    const str = string.toLowerCase();
     let count = {};
-    for(let i = 0; i<str.length; i++) {
+    for (let i = 0; i < str.length; i++) {
         let char = str[i];
-        if(count[char]) {
+        if (count[char]) {
             count[char]++
         } else {
-            count[char]=1;
+            count[char] = 1;
         }
     }
     const value = Object.values(count);
-    return value.every(num=> num === value[0]);
+    return value.every(num => num === value[0]);
 
 }
+/* 12. Letter change
+Replace every letter in the string with the letter following
+it in the alphabet (ie. c becomes d, z becomes a). Then capitalize every vowel
+in this new string (a, e, i, o, u) and finally return this modified string.
+*/
