@@ -227,3 +227,26 @@ Replace every letter in the string with the letter following
 it in the alphabet (ie. c becomes d, z becomes a). Then capitalize every vowel
 in this new string (a, e, i, o, u) and finally return this modified string.
 */
+const letterChange = (str) => {
+    if (str.length) {
+        let string = str.toLowerCase();
+        let newStr = " ";
+        for (let i = 0; i < string.length; i++) {
+            const code = string[i].charCodeAt();
+
+            if (code >= 97 && code <= 121) {
+                newStr += String.fromCharCode(code + 1)
+            }
+            else if (code === 122) {
+                newStr += String.fromCharCode(97)
+            }
+            else {
+                newStr += string[i];
+            }
+            newStr = newStr.replace(/a|e|i|o|u/gi, (vowel) => {
+                return vowel.toUpperCase();
+            });
+        }
+        return newStr
+    }
+}
