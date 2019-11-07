@@ -25,7 +25,7 @@ const convert = (num) => {
     return (hr + ':' + min)
 }
 
-/* 2. Matching Socks - Hackerrank problem. Given an array of numbers, each number 
+/* 2. Matching Socks - Hackerrank. Given an array of numbers, each number 
 representing a color, find how many matching pairs in the array */
 
 const socks = (arr) => {
@@ -46,3 +46,24 @@ const socks = (arr) => {
     }
     return pairs
 }
+
+/* 3. Counting Valleys - Hackerrank. Given a string representing the path taken - 'U' is 1 unit up, 
+'D' is 1 unit down. Mountain is above sea level, valley is below sea level. Return the number of valleys traversed.
+Path starts and ends at sea level. */
+
+ const valleys = (str)=> {
+     let path = 0;
+     let valley = 0;
+     for (let i = 0; i < str.length; i++) {
+         if(str[i]==='U') {
+             path ++
+         }
+         if(str[i]==='D') {
+             path --
+             if(path=== -1) {
+                 valley ++
+             }
+         }
+     }
+     return valley
+ }
