@@ -70,7 +70,7 @@ const multiply = (a, b) => {
     }
     return times;
 }
-
+multiply(2, 4)
 
 /* 3. Fibonacci - Find the number at a given index in the sequence using Fibonacci's number sequence.
  the number is the sum of the two precedent numbers in sequence. 0, 1, 1, 2, 3, 5, 8, 13, 21.....

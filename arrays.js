@@ -1,7 +1,7 @@
 
 //JavaScript Algorithm Samples - Arrays
 
-
+'use strict'
 /* 1. SubArray an Array (Chunked) - Given an array and a number, create subarrays inside array.
    Number is number of elements in each subarray. Example - [1,2,3,4,5,6,7,8,9,10], 4  = [[1,2,3,4],[5,6,7,8],[9,10]]
     a. create an empty array
@@ -107,10 +107,10 @@ const binary = (array, target) => {
         if (element === target) {
             return 'Index number: ' + guess;
         }
-        else if (element < target) {
+         if (element < target) {
             min = guess + 1;
         }
-        else {
+         {
             max = guess - 1;
         }
     }
@@ -145,7 +145,7 @@ const missing = (arr) => {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] > 0 && arr[i] === num) {
             num++;
-        } else if (arr[i] > 0 && arr[i] > num) {
+        }  if (arr[i] > 0 && arr[i] > num) {
             return num;
         }
     }
@@ -231,4 +231,15 @@ const moveLeft = (arr, x) => {
     }
     return arr;
 }
+/* 12. Second largest - given an array of integers, return the second largest. Edge - empty array, 1 element in array */
 
+// condition array length over 1
+// sort the array
+// slice from the second to last to last
+
+const secondLargest = (arr)=> {
+    if(arr.length >1) {
+        return arr.sort((a,b)=>a-b).slice(arr.length-2, -1)
+    }
+}
+// console.log(secondLargest([2, 5, 33, 9, 45, 78, 12]))
