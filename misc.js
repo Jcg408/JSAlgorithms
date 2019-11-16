@@ -5,7 +5,6 @@ Examples
 Input: 126
 Output: 2:6 */
 
-
 const convert = (num) => {
     let hr
     let min;
@@ -67,3 +66,41 @@ Path starts and ends at sea level. */
      }
      return valley
  }
+
+ function inverseBinaryComplement(num){ 
+   let binary = parseInt(num).toString(2); 
+   let complement = ""; 
+   for (let i in binary)  {
+     complement = complement + ((binary[i] === "1") ? 0 : 1);
+   } 
+   return parseInt(complement, 2);
+}
+
+
+function isBalanced(s) {
+    const arr = s.split("")
+    const opening = ['[', '{', '(']
+    const closing = [']', '}', ')']
+    const stack = []
+    for(let i=0; i< arr.length; i++) {
+        const element = arr[i]
+        if (opening.includes(element)) {
+            stack.push(element)
+        }
+        else if (closing.includes(element)) {
+            if (closing.indexOf(element) === opening.indexOf(stack[stack.length - 1])) {
+                stack.pop()
+            }
+            else {
+                return 'NO'
+            }
+        }
+    }
+    if (stack.length) {
+        return 'NO'
+    }
+    return 'YES'
+}
+
+console.log(isBalanced('{}[]()'))
+console.log(isBalanced('{[}]}'))
