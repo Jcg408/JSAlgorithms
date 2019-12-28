@@ -18,3 +18,24 @@
         let result = left - right;
         return Math.abs(result);
     };
+
+    /* 2. Hackerrank plus minus challenge. Given an array of integers, calculate the fractions of its elements that are positive, negative, and are zeros.
+     Print the decimal value of each fraction on a new line. */
+const plusMinus = arr => {
+    let positive = 0;
+    let negative = 0;
+    let zero = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < 0) {
+            negative++;
+        } else if (arr[i] > 0) {
+            positive++;
+        } else {
+            zero++;
+        }
+    }
+    console.log(positive / arr.length);
+    console.log(negative / arr.length);
+    console.log(zero / arr.length);
+};
