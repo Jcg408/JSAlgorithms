@@ -22,58 +22,17 @@ const convert = num => {
     return hr + ':' + min;
 };
 
-/* 2. Matching Socks - Hackerrank. Given an array of numbers, each number 
-representing a color, find how many matching pairs in the array */
-
-const socks = arr => {
-    let count = {};
-    for (let i = 0; i < arr.length; i++) {
-        let sock = arr[i];
-        if (count[sock]) {
-            count[sock]++;
-        } else {
-            count[sock] = 1;
-        }
-    }
-    let pairs = 0;
-    for (let num in count) {
-        if (count[num] > 1) {
-            pairs += Math.floor(count[num] / 2);
-        }
-    }
-    return pairs;
-};
-
-/* 3. Counting Valleys - Hackerrank. Given a string representing the path taken - 'U' is 1 unit up, 
-'D' is 1 unit down. Mountain is above sea level, valley is below sea level. Return the number of valleys traversed.
-Path starts and ends at sea level. */
-
-const valleys = str => {
-    let path = 0;
-    let valley = 0;
-    for (let i = 0; i < str.length; i++) {
-        if (str[i] === 'U') {
-            path++;
-        }
-        if (str[i] === 'D') {
-            path--;
-            if (path === -1) {
-                valley++;
-            }
-        }
-    }
-    return valley;
-};
-
-function inverseBinaryComplement(num) {
+// 2. Inverse Binary Complement
+const inverseBinary = num => {
     let binary = parseInt(num).toString(2);
     let complement = '';
     for (let i in binary) {
         complement = complement + (binary[i] === '1' ? 0 : 1);
     }
     return parseInt(complement, 2);
-}
+};
 
+// 3. Given a string of parenthesis, brackets, braces  such as ‘{}()[]’  Yes or No if every opening  matches its closing partner.
 function isBalanced(s) {
     const arr = s.split('');
     const opening = ['[', '{', '('];
@@ -100,8 +59,8 @@ function isBalanced(s) {
     return 'YES';
 }
 
-/* Given an amount and an array of coin denomination, find the least amount of coins equaling amount. If the amount can not 
-    be distributed evenly or there are coins leftover, return -1 */
+/* 4. Given an amount and an array of coin denomination, find the least amount of coins equaling amount. If the amount can not 
+     be distributed evenly or there are coins leftover, return -1 */
 const minCoins = (amount, money) => {
     // edge - make sure there is an amount and an array that is not empty or nil.
     if (amount > 0 && money.length) {
