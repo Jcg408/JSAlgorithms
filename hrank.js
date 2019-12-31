@@ -92,3 +92,21 @@ const socks = arr => {
     }
     return pairs;
 };
+
+/* 6. Counting Holes - Given a number, count the number of holes.  Integers  1,2,3,5,7 have no holes;  
+    integers  0, 4, 6, 9  have 1 hole; the integer 8 has 2 holes. */
+
+    const numHoles = (num) => {
+        let holes = 0;
+
+        const numStr = num.toString();
+        for (let i =0; i<numStr.length; i++) {
+            if (numStr[i]=== '8') {
+                holes +=2;
+            }
+            if(numStr[i]==='0'||numStr[i]==='4'||numStr[i]==='6'||numStr[i]==='9') {
+                holes +=1;
+            }
+        }
+        return holes;
+    }
