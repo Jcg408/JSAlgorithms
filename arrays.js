@@ -1,7 +1,6 @@
-
 //JavaScript Algorithm Samples - Arrays
 
-'use strict'
+'use strict';
 /* 1. SubArray an Array (Chunked) - Given an array and a number, create subarrays inside array.
    Number is number of elements in each subarray. Example - [1,2,3,4,5,6,7,8,9,10], 4  = [[1,2,3,4],[5,6,7,8],[9,10]]
     a. create an empty array
@@ -19,8 +18,7 @@ const subArray = (arr, num) => {
         index = index + num;
     }
     return newArr;
-
-}
+};
 /* 2. Min and Max in Array - Find the minimum and maximum number in an array.
    find min and max in array
    a. set min and max at array index 0;
@@ -28,10 +26,9 @@ const subArray = (arr, num) => {
    c. loop through array 
    d. conditional if min > or max < */
 
-const minMax = (arr) => {
+const minMax = arr => {
     let min = arr[0];
     let max = arr[0];
-
 
     for (let index of arr) {
         if (min > index) {
@@ -43,7 +40,7 @@ const minMax = (arr) => {
     }
     console.log(min);
     console.log(max);
-}
+};
 
 /* 3. Sort Array - Bubblesort. Given an array, sort ascending. Note - worst case O(n^2). Not to be used on large data.
     a. Loop through the array
@@ -51,9 +48,9 @@ const minMax = (arr) => {
     c. conditional with swap
     d. return array */
 
-const bubbleSort = (arr) => {
+const bubbleSort = arr => {
     for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < (arr.length - i - 1); j++) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
                 const less = arr[j + 1];
                 arr[j + 1] = arr[j];
@@ -62,7 +59,7 @@ const bubbleSort = (arr) => {
         }
     }
     return arr;
-}
+};
 
 /* 4. Sort Array - Selection. 
     a. loop through the array
@@ -71,7 +68,7 @@ const bubbleSort = (arr) => {
     d. compare value to other element
     e. if current index and lowest are not same - swap. */
 
-const selectionSort = (arr) => {
+const selectionSort = arr => {
     for (let i = 0; i < arr.length; i++) {
         let min = i;
 
@@ -87,7 +84,7 @@ const selectionSort = (arr) => {
         }
     }
     return arr;
-}
+};
 /* 5. Binary Search - only works with sorted array. Given a sorted array if target in array return index.
     a.  create a minimum variable and set to 0;
     b. create a maximum variable and set to array.length-1
@@ -107,16 +104,15 @@ const binary = (array, target) => {
         if (element === target) {
             return 'Index number: ' + guess;
         }
-         if (element < target) {
+        if (element < target) {
             min = guess + 1;
         }
-         {
+        {
             max = guess - 1;
         }
     }
-    return "number not in array";
-}
-
+    return 'number not in array';
+};
 
 /* 6. Simple Sum of Array - without using reduce method.
      a. set a counter to start at 0;
@@ -124,14 +120,13 @@ const binary = (array, target) => {
      c. add array element to counter with each iteration.
      d. return count */
 
-const sumArray = (arr) => {
+const sumArray = arr => {
     count = 0;
     for (let num of arr) {
         count = count + num;
-
     }
     return count;
-}
+};
 
 /* 7. Lowest missing positive number in sequence.
     // a. sort array ascending
@@ -139,38 +134,39 @@ const sumArray = (arr) => {
     // c. loop through array and compare to counter
     // d. check condition to see if meets the criteria */
 
-const missing = (arr) => {
+const missing = arr => {
     arr.sort((a, b) => a - b);
     let num = 1;
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] > 0 && arr[i] === num) {
             num++;
-        }  if (arr[i] > 0 && arr[i] > num) {
+        }
+        if (arr[i] > 0 && arr[i] > num) {
             return num;
         }
     }
     return num;
-}
+};
 
 /* 8. Single element in array with pairs- Find the single element which is not duplicated in the array
     a. sort array which will put them in sorted pairs
     b. iterate 2 spots to check value of next item. If pair it will have same value, 
     c. check value to see if both have same value. If not break and return value */
 
-const notpair = (arr) => {
+const notpair = arr => {
     if (arr.length === 1) {
         return arr[0];
     }
-    arr.sort((a, b) => a - b)
+    arr.sort((a, b) => a - b);
     let item = null;
     for (let i = 0; i < arr.length; i += 2) {
         if (arr[i] != arr[i + 1]) {
-            item = (arr[i])
+            item = arr[i];
             break;
         }
     }
     console.log(item);
-}
+};
 
 /* 9. Check distinct values in an array. See how many distinct elements are in the array without duplicates - return the count
   a. set condition for counter array length greater than 0
@@ -179,19 +175,19 @@ const notpair = (arr) => {
   d. increment the count.
   e. return count */
 
-const distinct = (array) => {
+const distinct = array => {
     if (array.length > 0) {
         let count = 0;
         let newArr = [];
         for (let item of array) {
             if (!newArr.includes(item)) {
-                newArr.push(item)
-                count++
+                newArr.push(item);
+                count++;
             }
         }
         return count;
     }
-}
+};
 
 /* 10. Rotate Right - Given an array, shift items a specified number of times to the right, last index becomes first index.
     a. set counter for number of rotations
@@ -202,18 +198,18 @@ const distinct = (array) => {
 */
 
 const moveRight = (arr, x) => {
-    let count = x
+    let count = x;
     let last = [];
 
     while (count > 0) {
-        last = arr.splice(arr.length - 1)
-        arr.unshift(...last)
-        count--
+        last = arr.splice(arr.length - 1);
+        arr.unshift(...last);
+        count--;
     }
     return arr;
-}
+};
 
-/* 1l. Rotate Left - Given an array, shift items a specified number of times to the left, last index becomes first index.
+/* 11. Rotate Left - Given an array, shift items a specified number of times to the left, last index becomes first index.
     a. set counter for number of rotations
     b. set temporary array to hold removed element
     c. set conditional loop
@@ -221,25 +217,44 @@ const moveRight = (arr, x) => {
     e. return array.
 */
 const moveLeft = (arr, x) => {
-    let first = []
+    let first = [];
     let count = x;
 
-    while (count >0) {
+    while (count > 0) {
         first = arr.shift();
-        arr.push(first)
-        count--
+        arr.push(first);
+        count--;
     }
     return arr;
-}
+};
 /* 12. Second largest - given an array of integers, return the second largest. Edge - empty array, 1 element in array */
 
 // condition array length over 1
 // sort the array
 // slice from the second to last to last
 
-const secondLargest = (arr)=> {
-    if(arr.length >1) {
-        return arr.sort((a,b)=>a-b).slice(arr.length-2, -1)
+const secondLargest = arr => {
+    if (arr.length > 1) {
+        return arr.sort((a, b) => a - b).slice(arr.length - 2, -1);
     }
+};
+// another option allows returning largest or second.
+
+const second2 = (arr)=> {
+    let largest = 0;
+    let second = 0;
+
+    for (let num of arr) {
+        if(largest ===0) {
+            largest = num;
+        }
+        else if (num > largest) {
+            second = largest;
+            largest = num;
+        }
+        else if (num < largest) {
+            second = num;
+        }
+    }
+  return second;
 }
-// console.log(secondLargest([2, 5, 33, 9, 45, 78, 12]))
