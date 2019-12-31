@@ -83,3 +83,15 @@ const minCoins = (amount, money) => {
         console.log(minCoins);
     }
 };
+
+/* Given a number, return the reverse number. Positive number should reverse to positive, negative reverse to negative. 
+    If number ends in zero, remove zero from lead in reverse. */
+
+const revInteger = num => {
+    let numString = num
+        .toString()
+        .split('')
+        .reverse()
+        .join('');
+    return parseInt(numString) * Math.sign(num); //convert to integer - make sure the integer retains sign of input
+};
