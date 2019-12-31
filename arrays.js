@@ -258,3 +258,20 @@ const second2 = (arr)=> {
     }
   return second;
 }
+/* 13. Two-Sum problem. Given an array and a target number, check to see if any 2 items in the array add up to target
+        Inputs - array, target number,
+*/
+// using object for better O complexity - O(n)
+const twoSum = (arr, target) => {
+	let numObj = {};
+	for (let i = 0; i < arr.length; i++) {
+		let num = arr[i];
+		numObj[num] = i;
+	}
+	for (let i = 0; i < arr.length; i++) {
+		let remain = target - arr[i];
+		if (numObj.hasOwnProperty(remain) && numObj[remain] !== i) {
+			return [i, numObj[remain]];
+		}
+	}
+}
