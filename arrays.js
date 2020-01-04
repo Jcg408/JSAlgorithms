@@ -240,38 +240,36 @@ const secondLargest = arr => {
 };
 // another option allows returning largest or second.
 
-const second2 = (arr)=> {
+const second2 = arr => {
     let largest = 0;
     let second = 0;
 
     for (let num of arr) {
-        if(largest ===0) {
+        if (largest === 0) {
             largest = num;
-        }
-        else if (num > largest) {
+        } else if (num > largest) {
             second = largest;
             largest = num;
-        }
-        else if (num < largest) {
+        } else if (num < largest) {
             second = num;
         }
     }
-  return second;
-}
+    return second;
+};
 /* 13. Two-Sum problem. Given an array and a target number, check to see if any 2 items in the array add up to target
         Inputs - array, target number,
 */
-// using object for better O complexity - O(n)
-const twoSum = (arr, target) => {
-	let numObj = {};
-	for (let i = 0; i < arr.length; i++) {
-		let num = arr[i];
-		numObj[num] = i;
-	}
-	for (let i = 0; i < arr.length; i++) {
-		let remain = target - arr[i];
-		if (numObj.hasOwnProperty(remain) && numObj[remain] !== i) {
-			return [i, numObj[remain]];
-		}
-	}
-}
+// using object/hash for better O complexity - O(n)
+const twoSum = (arr, target) => {git
+    let numObj = {};
+    for (let i = 0; i < arr.length; i++) {
+        let num = arr[i];
+        numObj[num] = i;
+    }
+    for (let i = 0; i < arr.length; i++) {
+        let remain = target - arr[i];
+        if (numObj.hasOwnProperty(remain) && numObj[remain] !== i) {
+            return [i, numObj[remain]];
+        }
+    }
+};
