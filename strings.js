@@ -86,6 +86,32 @@ const palindrome = str => {
         : console.log('Not a palindrome');
 };
 
+/*5. Longest Palindrome - Given a string, check for palindrome and return the longest in string.
+    a. normalize string, lowercase and remove space and special characters
+    b. set variable to empty string for returned palindrome
+    c. compare the two strings with iteration (nested) - new string against new string reversed using substring
+    d. if substring greater than empty string, empty string is substring
+*/
+    
+const longPalindrome = string => {
+    let newStr = string.toLowerCase().replace(/[\W\_]/g, '');
+    console.log(newStr);
+
+    let compareStr = '';
+    for (let j = 0; j < newStr.length; j++) {
+        for (let k = 0; k < newStr.length; k++) {
+            if (
+                newStr.substr(j, k) === newStr .substr(j, k).split('').reverse().join('')
+            ) {
+                if (newStr.substr(j, k).length > compareStr.length) {
+                    compareStr = newStr.substr(j, k);
+                }
+            }
+        }
+    }
+  return compareStr;
+};
+
 /* 5. Anagram - Given 2 strings, check to see if both have same characters even though 2 diff strings.
 
     a. Check to make sure they are the same length. If not return false;
