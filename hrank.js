@@ -110,7 +110,7 @@ const socks = arr => {
         }
         return holes;
     }
- /* Time Conversion - Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
+ /* 7. Time Conversion - Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
 Note: Midnight is 12:00:00AM on a 12-hour clock, and 00:00:00 on a 24-hour clock. Noon is 12:00:00PM 
 on a 12-hour clock, and 12:00:00 on a 24-hour clock.
 Function Description:
@@ -127,4 +127,22 @@ const timeConvert = str => {
         newStr[0].toString();
     }
     return newStr.join(':').slice(0, 8);
+};
+
+/* 8. Your niece is turning 4 years old, and the cake will have  candles of height 4,3 1,4 , she will be 
+able to blow out  2 candles successfully, since the tallest candles are of height 4 and there are 2  such candles.
+Function Description:
+Complete the function birthdayCakeCandles in the editor below. It must return an integer
+ representing the number of candles she can blow out. The function has the following parameter(s):
+ an array of integers representing candle heights*/
+
+ const birthdayCandles = arr => {
+    let candleCount = 0;
+    let newArr = arr.sort((a, b) => b - a);
+    newArr.filter(num => {
+        if (num === newArr[0]) {
+            candleCount += 1;
+        }
+    });
+    candleCount;
 };
