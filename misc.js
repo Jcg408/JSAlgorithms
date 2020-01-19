@@ -84,7 +84,7 @@ const minCoins = (amount, money) => {
     }
 };
 
-/* Given a number, return the reverse number. Positive number should reverse to positive, negative reverse to negative. 
+/* 5. Given a number, return the reverse number. Positive number should reverse to positive, negative reverse to negative. 
     If number ends in zero, remove zero from lead in reverse. */
 
 const revInteger = num => {
@@ -96,7 +96,7 @@ const revInteger = num => {
     return parseInt(numString) * Math.sign(num); //convert to integer - make sure the integer retains sign of input
 };
 
-/* Codility challenge - Ropes
+/* 6. Codility challenge - Ropes
 There are N ropes numbered from 0 to N − 1, whose lengths are given in an array A, lying on the floor in a line. For each I (0 ≤ I < N), the length of rope I on the line is A[I].
 We say that two ropes I and I + 1 are adjacent. Two adjacent ropes can be tied together with a knot, and the length of the tied rope is the sum of lengths of both ropes. The resulting new rope can then be tied again.
 For a given integer K, the goal is to tie the ropes in such a way that the number of ropes whose length is greater than or equal to K is maximal.
@@ -127,3 +127,9 @@ const ropes = (arr, num) => {
     }
     return count;
 };
+
+// 7. Write a function that takes year (number) as an input and tells whether it is leap year or not
+
+const leapYear=(year) => {
+    return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+}
