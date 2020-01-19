@@ -260,7 +260,8 @@ const second2 = arr => {
         Inputs - array, target number,
 */
 // using object/hash for better O complexity - O(n)
-const twoSum = (arr, target) => {git
+const twoSum = (arr, target) => {
+    git;
     let numObj = {};
     for (let i = 0; i < arr.length; i++) {
         let num = arr[i];

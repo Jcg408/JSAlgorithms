@@ -281,3 +281,28 @@ const letterChange = str => {
         return newStr;
     }
 };
+
+/*  X, Y Balance - Given a string containing only the characters x and y, find
+    whether there are the same number of  each letter.
+    */
+
+   const balance = str => {
+    if (str.length > 0 && str.length % 2) {
+      return false;
+    }
+    let count = {};
+    for (let i = 0; i < str.length; i++) {
+      let char = str[i];
+      if (count[char]) {
+        count[char]++;
+      } else {
+        count[char] = 1;
+      }
+    }
+    let values = Object.values(count);
+    if (values[0] === values[1]) {
+      return true;
+    } else {
+      return false;
+    }
+  };    
