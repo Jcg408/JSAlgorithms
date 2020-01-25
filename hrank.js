@@ -204,3 +204,34 @@ const grading = arr => {
     });
    return newGrades;
 };
+
+/* 11. print the number of apples and oranges that land on Sam's house, each on a separate line.
+
+countApplesAndOranges has the following parameter(s):
+
+s: integer, starting point of Sam's house location.
+t: integer, ending location of Sam's house location.
+a: integer, location of the Apple tree.
+b: integer, location of the Orange tree.
+apples: integer array, distances at which each apple falls from the tree.
+oranges: integer array, distances at which each orange falls from the tree.*/
+
+const  countApplesAndOrange = (s, t, a, b, apples, oranges) => {
+    let inRange = []
+    let appleCount = 0;
+    let orangeCount = 0;
+    for (let apple of apples) {
+        if (apple + a >= s && apple + a <= t) {
+            appleCount += 1
+        }
+    }
+    for (let orange of oranges) {
+        if (orange + b >= s && orange + b <= t) {
+            orangeCount += 1
+        }
+    }
+    inRange.push(appleCount, orangeCount)
+    console.log(inRange[0])
+    console.log(inRange[1])
+
+}
